@@ -130,24 +130,13 @@ or you can also the run the test_llama.py file!
 
 ## Final Thoughts
 
-Despite performance, infrastructure, and cost constraints, I'm proud of how far the current prototype has come. It serves as a strong proof of concept: an AI-powered Chrome extension that enhances the learning experience on YouTube by summarizing, simplifying, and contextualizing educational content in real time.
+This project captures my ability to rapidly prototype cutting-edge AI solutions with real user value despite infrastructure constraints. It demonstrates:
 
-Looking ahead, there's significant potential to expand this idea beyond YouTube into a full-fledged Browser-Based Learning Assistant—one that can help users learn from any source on the internet, including:
+* Problem-solving with open-source AI tech
+* Adapting to real-world data limitations
+* Building clean, maintainable backend APIs
+* Iterating towards a usable MVP under uncertainty
 
-    Educational articles
+---
 
-    Scientific research papers
-
-    Technical documentation
-
-    Even offline PDF textbooks
-
-This evolution could empower students and self-learners by turning static content into interactive, AI-powered tutoring experiences. A few compelling use cases:
-
-    Highlight a sentence in an academic paper → get a simplified explanation
-
-    Upload a textbook PDF → ask contextual questions offline
-
-    Read a coding tutorial → ask the assistant to explain the code step-by-step
-
-The long-term vision is to build an AI tutor that lives in your browser and helps you learn wherever you are—with or without an internet connection.
+If you want, I can help you draft a compact version for GitHub’s README front page or a presentation slide deck too. Just say the word!
