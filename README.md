@@ -1,4 +1,4 @@
-# YouTube AI Tutor
+# InTab Tutor for YouTube 
 
 ## Project Status as of 07.18.2025
 
@@ -56,7 +56,7 @@ To avoid API costs and dependency, the project pivoted to use **TinyLlama**, a l
 
 * **Backend**:
 
-  * FastAPI serving `/generate` endpoint.
+  * FastAPI serving /generate endpoint.
   * Loads TinyLlama 1.1B model locally in CPU mode with adjusted prompt formatting.
   * Accepts JSON POST requests with prompt text and max token limits.
   * Returns cleaned-up generated text answers.
@@ -68,7 +68,7 @@ To avoid API costs and dependency, the project pivoted to use **TinyLlama**, a l
 
 * **Future work**:
 
-  * Real transcript extraction integration using `youtube-transcript-api`.
+  * Real transcript extraction integration using youtube-transcript-api.
   * Frontend UI improvement as a browser extension or web app for seamless user experience.
   * Model chunking and async handling for scalability.
   
@@ -80,19 +80,21 @@ To avoid API costs and dependency, the project pivoted to use **TinyLlama**, a l
 1. Clone the repo.
 2. Install dependencies:
 
-```bash
+bash
 pip install -r requirements.txt
-```
+
+
 
 3. Run the backend:
 
-```bash
+bash
 uvicorn main:app --host 0.0.0.0 --port 8000
-```
+
+
 
 4. Test with:
 
-```python
+python
 import requests
 
 payload = {
@@ -102,7 +104,8 @@ payload = {
 
 resp = requests.post("http://localhost:8000/generate", json=payload)
 print(resp.json())
-```
+
+
 or you can also the run the test_llama.py file!
 ---
 
@@ -130,13 +133,24 @@ or you can also the run the test_llama.py file!
 
 ## Final Thoughts
 
-This project captures my ability to rapidly prototype cutting-edge AI solutions with real user value despite infrastructure constraints. It demonstrates:
+Despite performance, infrastructure, and cost constraints, I'm proud of how far the current prototype has come. It serves as a strong proof of concept: an AI-powered Chrome extension that enhances the learning experience on YouTube by summarizing, simplifying, and contextualizing educational content in real time.
 
-* Problem-solving with open-source AI tech
-* Adapting to real-world data limitations
-* Building clean, maintainable backend APIs
-* Iterating towards a usable MVP under uncertainty
+Looking ahead, there's significant potential to expand this idea beyond YouTube into a full-fledged Browser-Based Learning Assistant—one that can help users learn from any source on the internet, including:
 
----
+    Educational articles
 
-If you want, I can help you draft a compact version for GitHub’s README front page or a presentation slide deck too. Just say the word!
+    Scientific research papers
+
+    Technical documentation
+
+    Even offline PDF textbooks
+
+This evolution could empower students and self-learners by turning static content into interactive, AI-powered tutoring experiences. A few compelling use cases:
+
+    Highlight a sentence in an academic paper → get a simplified explanation
+
+    Upload a textbook PDF → ask contextual questions offline
+
+    Read a coding tutorial → ask the assistant to explain the code step-by-step
+
+The long-term vision is to build an AI tutor that lives in your browser and helps you learn wherever you are—with or without an internet connection.
