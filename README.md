@@ -147,5 +147,3 @@ This project captures my ability to rapidly prototype cutting-edge AI solutions 
 * Iterating towards a usable MVP under uncertainty
 
 ---
-
-If you want, I can help you draft a compact version for GitHub’s README front page or a presentation slide deck too. Just say the word!
