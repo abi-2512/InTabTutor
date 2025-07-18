@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "YouTube AI Tutor",
+    "version": "1.0",
+    "permissions": ["scripting", "activeTab"],
+    "content_scripts": [
+      {
+        "matches": ["*://www.youtube.com/*"],
+        "js": ["content.js"],
+        "run_at": "document_idle"
+      }
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_title": "AI Tutor"
+    },
+    "web_accessible_resources": [
+      {
+        "resources": ["sidebar.html", "style.css", "sidebar.js"],
+        "matches": ["<all_urls>"]
+      }
+    ]
+  }
+  
