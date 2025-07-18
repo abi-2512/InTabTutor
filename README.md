@@ -1,10 +1,10 @@
 # YouTube AI Tutor
 
-## Project Status
+## Project Status as of 07.18.2025
 
-During development, YouTube released a similar “Ask and Learn” feature that addresses many of the same user needs. Given this, I’ve decided to pause active development on the Chrome extension.
+During development, YouTube released a similar Experimental “Ask and Learn” feature that addresses many of the same user needs. (See Learning-Focused Conversational AI Tool: https://support.google.com/youtube/answer/14110396?hl=en#zippy=)
 
-However, the backend and AI assistant remain fully functional and serve as a strong foundation for future AI-powered learning tools beyond YouTube. This project reflects my hands-on experience building an end-to-end AI system—from model integration to API design and frontend extension development.
+However, this project remains valuable as a customizable, open-source alternative with local LLM inference — useful for niche applications or education platforms beyond YouTube.
 
 ---
 
@@ -29,15 +29,15 @@ The project goal was simple but ambitious:
 
 ---
 
-## Where We Started
+## Where I Started
 
 * **Initial idea**: Use OpenAI GPT-4 API to build an assistant that takes YouTube transcripts and answers user questions contextually.
 * **Early issues**:
 
   * Transcript extraction was unreliable — many videos lack official transcripts or IP-blocking prevented API calls.
   * API latency and cost were significant blockers for rapid iteration.
-  * OpenAI’s model usage requires API keys with restrictions and can get expensive fast.
-* **Tech Stack**: Python backend with FastAPI, frontend Chrome extension planned for integration.
+  * OpenAI’s model usage requires API keys with restrictions and can get expensive fast (for a student!).
+* **Tech Stack**: Python backend with FastAPI, frontend Chrome extension using HTML, CSS, JS.
 
 ---
 
@@ -49,18 +49,6 @@ To avoid API costs and dependency, the project pivoted to use **TinyLlama**, a l
 * No API keys or costs involved.
 * Good enough output quality for MVP.
 * Completely open and flexible.
-
----
-
-## Key Challenges and Solutions
-
-| Challenge                                          | Solution/Workaround                                                                                                    |
-| -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| **BitsAndBytes CUDA error on CPU-only machines**   | Disabled 4-bit quantization and forced CPU mode for model loading.                                                     |
-| **Model echoing input prompt without answer**      | Learned TinyLlama requires manual prompt formatting with special tokens to trigger generation.                         |
-| **No Hugging Face 'chat-completion' pipeline**     | Used `text-generation` pipeline with careful prompt template using `[INST]`, `<<SYS>>` tags to simulate chat behavior. |
-| **FastAPI endpoint errors due to request parsing** | Added Pydantic models to parse JSON body correctly, avoiding query param issues.                                       |
-| **Transcript retrieval blocked by YouTube**        | Added fallback hardcoded transcript tests and planned chunking for long transcripts.                                   |
 
 ---
 
@@ -81,8 +69,9 @@ To avoid API costs and dependency, the project pivoted to use **TinyLlama**, a l
 * **Future work**:
 
   * Real transcript extraction integration using `youtube-transcript-api`.
-  * Frontend integration as a browser extension or web app for seamless user experience.
+  * Frontend UI improvement as a browser extension or web app for seamless user experience.
   * Model chunking and async handling for scalability.
+  
 
 ---
 
@@ -114,7 +103,7 @@ payload = {
 resp = requests.post("http://localhost:8000/generate", json=payload)
 print(resp.json())
 ```
-
+or you can also the run the test_llama.py file!
 ---
 
 ## What We Learned
@@ -129,23 +118,36 @@ print(resp.json())
 
 ## Next Steps (Beyond MVP)
 
-* Build a Chrome/Firefox extension that injects the assistant UI into YouTube watch pages.
 * Automate transcript retrieval and chunking for better context handling.
-* Experiment with larger or quantized models on GPU to improve output quality and speed.
-* Add conversational memory for multi-turn dialogs.
+* Experiment with larger or quantized models on GPU to improve output quality and speed. (Highly Ambitious)
+* Add conversational memory for multi-turn dialogs. (Highly Ambitious)
 * Explore frontend frameworks (React/Vue) for a slick user experience.
+* Integrating Whisper for audio-to-text.
+* Browser-wide learning assistant
+* Making it work offline with pre-cached models. 
 
 ---
 
 ## Final Thoughts
 
-This project captures my ability to rapidly prototype cutting-edge AI solutions with real user value despite infrastructure constraints. It demonstrates:
+Despite performance, infrastructure, and cost constraints, I'm proud of how far the current prototype has come. It serves as a strong proof of concept: an AI-powered Chrome extension that enhances the learning experience on YouTube by summarizing, simplifying, and contextualizing educational content in real time.
 
-* Problem-solving with open-source AI tech
-* Adapting to real-world data limitations
-* Building clean, maintainable backend APIs
-* Iterating towards a usable MVP under uncertainty
+Looking ahead, there's significant potential to expand this idea beyond YouTube into a full-fledged Browser-Based Learning Assistant—one that can help users learn from any source on the internet, including:
 
----
+    Educational articles
 
-If you want, I can help you draft a compact version for GitHub’s README front page or a presentation slide deck too. Just say the word!
+    Scientific research papers
+
+    Technical documentation
+
+    Even offline PDF textbooks
+
+This evolution could empower students and self-learners by turning static content into interactive, AI-powered tutoring experiences. A few compelling use cases:
+
+    Highlight a sentence in an academic paper → get a simplified explanation
+
+    Upload a textbook PDF → ask contextual questions offline
+
+    Read a coding tutorial → ask the assistant to explain the code step-by-step
+
+The long-term vision is to build an AI tutor that lives in your browser and helps you learn wherever you are—with or without an internet connection.
